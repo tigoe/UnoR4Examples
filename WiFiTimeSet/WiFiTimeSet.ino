@@ -9,7 +9,8 @@
     the realtime clock epoch with that time
 
     Original version works on MKR1000, MKR1010, Nano 33 IoT.
-    Current version fails to get the time on WiFiS3 library
+    Current version fails to get the time on WiFiS3 library.
+    It goes into a continual loop of checking for the time.
 
     Make sure to add a file, arduino_secrets.h, with:
     #define SECRET_SSID ""    //  your network SSID (name)
