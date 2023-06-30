@@ -1,5 +1,5 @@
 #include <stdint.h>
-const uint32_t frames[][4] = {
+const unsigned long frames[][4] = {
   {
     0xe0000000,
     0x0,
