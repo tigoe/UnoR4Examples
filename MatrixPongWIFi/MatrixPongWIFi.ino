@@ -99,9 +99,8 @@ void setup() {
   setPaddle(screenWidth, leftPaddleY, HIGH);
 }
 
-
 void loop() {
-  // monitor clients:
+  // listen for UDP paddle control:
   checkUdp();
   // If the game is paused:
   if (gamePaused) {
@@ -137,9 +136,7 @@ void point(int x, int y, int state) {
 void checkUdp() {
   // if there's data available, read a packet
 
-  int packetSize = Udp.parsePacket();
-  if (packetSize) {
-
+  if (Udp.parsePacket() > 0) {
     Serial.print("Received from ");
     IPAddress remoteIp = Udp.remoteIP();
     Serial.print(remoteIp);
@@ -185,23 +182,6 @@ void checkUdp() {
     }
   }
 }
-
-void readSensors() {
-  // erase the left paddle:
-  setPaddle(0, leftPaddleY, LOW);
-  // erase the right paddle:
-  setPaddle(screenWidth, rightPaddleY, LOW);
-
-  // read the sensors for X and Y values:
-  leftPaddleY = map(analogRead(A0), 0, 1023, 0, 7);
-  rightPaddleY = map(analogRead(A1), 0, 1023, 0, 7);
-
-  // re-draw the  left paddle:
-  setPaddle(0, leftPaddleY, HIGH);
-  // re-draw the right paddle:
-  setPaddle(screenWidth, rightPaddleY, HIGH);
-}
-
 
 void setPaddle(int paddleX, int paddleY, int state) {
   // draw the center of the paddle:
