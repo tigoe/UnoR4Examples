@@ -21,6 +21,7 @@ ArduinoLEDMatrix matrix;
 // to visualize the screen in the array:
 byte pixels[8][12];
 
+
 void setup() {
   // Serial is not really needed but helps for debugging:
   Serial.begin(9600);
