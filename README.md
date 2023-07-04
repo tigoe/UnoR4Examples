@@ -87,4 +87,4 @@ Here's a code snipped that will print out the frame this way:
   }
 ````
 
-The Matrix drawing tool actually exports four 32-bit ints, explanation to come. 
+The Matrix drawing tool actually exports four 32-bit ints. The last int is the number of wait before the next frame in an animation sequence. This allows for animation sequences with varying rhythms (Thanks @facchinm for the explanation).
